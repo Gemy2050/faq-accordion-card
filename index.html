@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="all.min.css">
+  
+  <title>Frontend Mentor | FAQ Accordion Card</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: system-ui;
+    background-image: linear-gradient( to left, hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    width: 850px;
+    max-width: 100%;
+    height: 470px;
+    position: relative;
+    /* overflow: hidden; */
+  }
+  .container .title {
+    margin-bottom: 20px;
+    margin-top: 0;
+  }
+  .image2 {
+    width: 350px;
+    position: relative;
+    right: 40px;
+  }
+  .card {
+    width: 400px;
+  }
+  .card .box {
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
+    transition: .3s;
+  }
+  .card .box .question {
+    font-size: 19px;
+    font-weight: 500;
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s;
+  }
+    .card .box .question i {
+      color: red;
+    }
+  .card .box .question:hover {
+    color: red;
+    transition: .3s;
+  }
+  .card .box p {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #777;
+    margin: 0 0 15px 0;
+  }
+  .hide {
+    display: none;
+  }
+  .image1 {
+    position: absolute;
+    left: -35px;
+    top: 215px;
+    width: 150px;
+    z-index: 10;
+  }
+  @media(max-width: 991px) {
+    .container {
+      flex-direction: column;
+      justify-content: flex-start;
+      flex: none;
+      width: fit-content;
+      padding: 15px;
+      text-align: center;
+      height: 500px;
+    }
+    .card {
+      max-width: 100%;
+    }
+    .container .image1 {
+      display: none;
+    }
+    .container .image2 {
+      width: 200px;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-100%);
+    }
+    .container .card {
+      flex: 1;
+      margin-top: -60px;
+    }
+  }
+  @media(max-width: 375px) {
+    .container {
+      width: 350px;
+      font-size: 16px;
+      padding: 10px;
+    }
+    .card {
+      max-width: 100%;
+    }
+    .container .box .question {
+      font-size: 16px;
+    }
+    .container .box p {
+      font-size: 14px;
+    }
+    .container .image2 {
+      width: 180px;
+    }
+  }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+  <img src="images/illustration-box-desktop.svg" alt="" class="image1">
+    <img src="images/illustration-woman-online-desktop.svg" alt="" class="image2">
+    <div class="card">
+      <h1 class="title">FAQ</h1>
+      <div class="box">
+        <h2 class="question" data-target="answer1">How many team members can I invite? <i class="fa-solid fa-angle-down"></i></h2>
+        <p class="answer1 hide">
+          You can invite up to 2 additional users on the Free plan. There is no limit on
+          team members for the Premium plan.
+        </p>
+      </div>
+    
+      <div class="box">
+        <h2 class="question" data-target="answer2">What is the maximum file upload size? <i class="fa-solid fa-angle-down"></i></h2>
+        <p class="answer2 hide">
+          No more than 2GB. All files in your account must fit your allotted storage space.
+        </p>
+      </div>
+    
+      <div class="box">
+        <h2 class="question" data-target="answer3">How do I reset my password? <i class="fa-solid fa-angle-down"></i></h2>
+        <p class="answer3 hide">
+          Click “Forgot password” from the login page or “Change password” from your profile page.
+          A reset link will be emailed to you.
+        </p>
+      </div>
+    
+      <div class="box">
+        <h2 class="question" data-target="answer4">Can I cancel my subscription? <i class="fa-solid fa-angle-down"></i></h2>
+        <p class="answer4 hide">
+          Yes! Send us a message and we’ll process your request no questions asked.
+        </p>
+      </div>
+    
+      <div class="box">
+        <h2 class="question" data-target="answer5">Do you provide additional support? <i class="fa-solid fa-angle-down"></i></h2>
+        <p class="answer5 hide">
+          Chat and email support is available 24/7. Phone lines are open during normal business hours.
+        </p>
+      </div>
+    
+    </div>
+
+  </div>
+
+
+  
+  <script>
+    let questions = document.querySelectorAll(".container .question");
+      questions.forEach((q) => {
+        q.addEventListener("click", (e) => {
+          questions.forEach((qu) => {
+            if(qu.dataset.target != e.target.dataset.target) {
+              document.querySelector(`.${qu.dataset.target}`).classList.add("hide");
+              qu.children[0].classList.remove("fa-angle-up");
+            }
+          });
+          e.target.children[0].classList.toggle("fa-angle-up");
+          document.querySelector(`.${e.target.dataset.target}`).classList.toggle("hide");
+        })
+      });
+  </script>
+</body>
+</html>
