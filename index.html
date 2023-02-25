@@ -4,202 +4,195 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="all.min.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   
-  <title>Frontend Mentor | FAQ Accordion Card</title>
-
+  <title>Frontend Mentor | Multi-step form</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
-
-  body {
-    padding: 0;
-    margin: 0;
-    font-family: system-ui;
-    background-image: linear-gradient( to left, hsl(273, 75%, 66%), hsl(240, 73%, 65%));
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  .container {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 16px;
-    width: 850px;
-    max-width: 100%;
-    height: 470px;
-    position: relative;
-    /* overflow: hidden; */
-  }
-  .container .title {
-    margin-bottom: 20px;
-    margin-top: 0;
-  }
-  .image2 {
-    width: 350px;
-    position: relative;
-    right: 40px;
-  }
-  .card {
-    width: 400px;
-  }
-  .card .box {
-    border-bottom: 1px solid #ddd;
-    overflow: hidden;
-    transition: .3s;
-  }
-  .card .box .question {
-    font-size: 19px;
-    font-weight: 500;
-    margin: 15px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    transition: .3s;
-  }
-    .card .box .question i {
-      color: red;
-    }
-  .card .box .question:hover {
-    color: red;
-    transition: .3s;
-  }
-  .card .box p {
-    font-size: 15px;
-    line-height: 1.5;
-    color: #777;
-    margin: 0 0 15px 0;
-  }
-  .hide {
-    display: none;
-  }
-  .image1 {
-    position: absolute;
-    left: -35px;
-    top: 215px;
-    width: 150px;
-    z-index: 10;
-  }
-  @media(max-width: 991px) {
-    .container {
-      flex-direction: column;
-      justify-content: flex-start;
-      flex: none;
-      width: fit-content;
-      padding: 15px;
-      text-align: center;
-      height: 500px;
-    }
-    .card {
-      max-width: 100%;
-    }
-    .container .image1 {
-      display: none;
-    }
-    .container .image2 {
-      width: 200px;
-      top: -100px;
-      left: 50%;
-      transform: translateX(-100%);
-    }
-    .container .card {
-      flex: 1;
-      margin-top: -60px;
-    }
-  }
-  @media(max-width: 375px) {
-    .container {
-      width: 340px;
-      font-size: 16px;
-      padding: 10px;
-    }
-    .card {
-      max-width: 100%;
-    }
-    .container .box .question {
-      font-size: 16px;
-    }
-    .container .box p {
-      font-size: 14px;
-    }
-    .container .image2 {
-      width: 180px;
-    }
-  }
   </style>
 </head>
 <body>
 
+  <!-- Sidebar start -->
   <div class="container">
-  <img src="images/illustration-box-desktop.svg" alt="" class="image1">
-    <img src="images/illustration-woman-online-desktop.svg" alt="" class="image2">
-    <div class="card">
-      <h1 class="title">FAQ</h1>
-      <div class="box">
-        <h2 class="question" data-target="answer1">How many team members can I invite? <i class="fa-solid fa-angle-down"></i></h2>
-        <p class="answer1 hide">
-          You can invite up to 2 additional users on the Free plan. There is no limit on
-          team members for the Premium plan.
-        </p>
+    <div class="sidebar">
+      <div class="phase active">
+        <span class="num">1</span>
+        <div class="content">
+          <span>Step 1</span>
+          <p>Your Info</p>
+        </div>
       </div>
-    
-      <div class="box">
-        <h2 class="question" data-target="answer2">What is the maximum file upload size? <i class="fa-solid fa-angle-down"></i></h2>
-        <p class="answer2 hide">
-          No more than 2GB. All files in your account must fit your allotted storage space.
-        </p>
+      <div class="phase">
+        <span class="num">2</span>
+        <div class="content">
+          <span>Step 2</span>
+          <p>Select Plan</p>
+        </div>
       </div>
-    
-      <div class="box">
-        <h2 class="question" data-target="answer3">How do I reset my password? <i class="fa-solid fa-angle-down"></i></h2>
-        <p class="answer3 hide">
-          Click “Forgot password” from the login page or “Change password” from your profile page.
-          A reset link will be emailed to you.
-        </p>
+      <div class="phase">
+        <span class="num">3</span>
+        <div class="content">
+          <span>Step 3</span>
+          <p>Add-Ons</p>
+        </div>
       </div>
-    
-      <div class="box">
-        <h2 class="question" data-target="answer4">Can I cancel my subscription? <i class="fa-solid fa-angle-down"></i></h2>
-        <p class="answer4 hide">
-          Yes! Send us a message and we’ll process your request no questions asked.
-        </p>
+      <div class="phase">
+        <span class="num">4</span>
+        <div class="content">
+          <span>Step 4</span>
+          <p>Summary</p>
+        </div>
       </div>
-    
-      <div class="box">
-        <h2 class="question" data-target="answer5">Do you provide additional support? <i class="fa-solid fa-angle-down"></i></h2>
-        <p class="answer5 hide">
-          Chat and email support is available 24/7. Phone lines are open during normal business hours.
-        </p>
-      </div>
-    
     </div>
-
+    <form autocomplete="off">
+      <div class="tab">
+        <h1>Personal Info</h1>
+        <p>Please Provide Your Name, Email Address and Phone Number</p>
+        <div class="info">
+          <div class="box ">
+            <label for="name">Name <span>This Field is Required</span></label>
+            <input type="text" id="name"  placeholder="Name" />
+          </div>
+          <div class="box">
+            <label for="email">Email Address <span>This Field is Required</span></label>
+            <input type="email" id="email" placeholder="Email Address" />
+          </div>
+          <div class="box">
+            <label for="phone">Phone Number <span>This Field is Required</span></label>
+            <input type="number" id="phone" placeholder="Phone Number" />
+          </div>
+        </div>
+      </div>
+      <div class="tab">
+        <h1>Select Your Plan</h1>
+        <p>You Have The Option of Monthly or Yearly Billing</p>
+        <div class="plans">
+          <input type="radio" id="arcade"  name="plan" checked/>
+          <div class="box">
+            <label for="arcade">
+              <img src="./assets/images/icon-arcade.svg" alt="">
+              <h3>Arcade</h3>
+              <p>$9/mo</p>
+            </label>
+          </div>
+          <input type="radio" id="advanced"  name="plan" />
+          <div class="box">
+            <label for="advanced">
+              <img src="./assets/images/icon-advanced.svg" alt="">
+              <h3>Advanced</h3>
+              <p>$15/mo</p>
+            </label>
+          </div>
+          <input type="radio" id="pro"  name="plan" />
+          <div class="box">
+            <label for="pro">
+              <img src="./assets/images/icon-pro.svg" alt="">
+              <h3>Pro</h3>
+              <p>$20/mo</p>
+            </label>
+          </div>
+        </div>
+        <div class="option">
+          <span class="month">Monthly</span>
+          <label>
+            <input type="checkbox" class="toggle-checkbox" checked="">
+            <div class="toggle-switch"></div>
+          </label>
+          <span class="year">Yearly</span>
+        </div>
+      </div>
+      <div class="tab">
+        <h1>Pick Add-Ons</h1>
+        <p>Add-Ons Help Enhance Your Gaming Experience</p>
+        <div class="addons">
+          <input type="checkbox" id="service" checked>
+          <label for="service">
+            <div class="box">
+              <div class="content">
+                <h3>Online Services</h3>
+                <p>Access To Multiplayer Games</p>
+              </div>
+              <span>+$1/mo</span>
+            </div>
+          </label>
+          <input type="checkbox" id="storage" checked>
+          <label for="storage">
+              <div class="box">
+              <div class="content">
+                <h3>Larger Storage</h3>
+                <p>Extra 1TB Of Cloud Save</p>
+              </div>
+              <span>+$2/mo</span>
+            </div>
+          </label>
+          <input type="checkbox" id="profile" >
+          <label for="profile">
+            <div class="box">
+              <div class="content">
+                <h3>Customizable Profile</h3>
+                <p>Custom Theme On Your Prodile</p>
+              </div>
+              <span>+$2/mo</span>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="tab">
+        <h1>Finishing Up</h1>
+        <p>Double Check Everything Looks Okay Before Confirming</p>
+        <div class="finish">
+          <div class="box">
+            <div class="content">
+              <div>
+                <h3>Arcade (Monthly)</h3>
+                <a href="#">Change</a>
+              </div>
+              <span class="price">$9/mo</span>
+            </div>
+            <div class="content">
+              <div>
+                <span class="name">Online Services</span>
+              <span>+$1/mo</span>
+              </div>
+              <div>
+                <span class="name">Larger Storage</span>
+                <span>+$2/mo</span>
+              </div>
+            </div>
+          </div>
+          <div class="total">
+            <span class="text">Total (Per Month)</span>
+            <span class="price">+$12/mo</span>
+          </div>
+        </div>
+      </div>
+      <div class="thanks">
+        <div class="content">
+          <img src="./assets/images/icon-thank-you.svg" alt="">
+          <h1>Thank You</h1>
+          <p>
+            Thanks for confirming your subscription! We hope you have fun 
+            using our platform. If you ever need support, please feel free 
+            to email us at support@loremgaming.com.
+          </p>
+        </div>
+      </div>
+      <div class="buttons">
+        <button class="back">Go Back</button>
+        <button class="next">Next Step</button>
+      </div>
+    </form>
   </div>
 
-
-  
-  <script>
-    let questions = document.querySelectorAll(".container .question");
-      questions.forEach((q) => {
-        q.addEventListener("click", (e) => {
-          questions.forEach((qu) => {
-            if(qu.dataset.target != e.target.dataset.target) {
-              document.querySelector(`.${qu.dataset.target}`).classList.add("hide");
-              qu.children[0].classList.remove("fa-angle-up");
-            }
-          });
-          e.target.children[0].classList.toggle("fa-angle-up");
-          document.querySelector(`.${e.target.dataset.target}`).classList.toggle("hide");
-        })
-      });
-  </script>
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Mohamed Gamal</a>.
+  </div> -->
+  <script src="main.js"></script>
 </body>
-</html>
+</html> 
